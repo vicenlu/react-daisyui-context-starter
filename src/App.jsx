@@ -1,16 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useContext } from "react";
+import "./App.css";
+/* import { DataContext } from "./context/dataContext"; */
+
+import { DataContext } from "./context/dataContext.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { counter, setCounter } = useContext(DataContext);
 
   return (
     <div className="font-poppins">
-     <button className="btn btn-primary">DaisyUI Button</button>
+      <button className="btn btn-primary" onClick={() => setCounter(5)}>
+        Valor contador: {counter}
+      </button>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
